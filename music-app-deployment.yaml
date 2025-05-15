@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: music-app-service
+spec:
+  selector:
+    app: music-app
+  ports:
+    - protocol: TCP
+      port: 9090
+      targetPort: 9090
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: music-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: music-app
+  template:
+    metadata:
+      labels:
+        app: music-app
+    spec:
+      containers:
+      - name: music-app
+        image: music-app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 9090
+        env:
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis-secret
+              key: redis-password
