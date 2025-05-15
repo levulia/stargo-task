@@ -31,9 +31,7 @@ This project deploys a Go-based app server and Redis database in a Minikube Kube
 
 2. Copy the provided `data.rdb` file to `/lib/var/redis/data.rdb` (required sudo)
 
-3. Copy the `music_app.tar` file to the working directory and extract it
-
-- tar -xf music_app.tar
+3. Copy the `music_app.tar` file to the working directory
 
 4. Copy following configuration files to the working directory
 
@@ -50,11 +48,12 @@ This project deploys a Go-based app server and Redis database in a Minikube Kube
 
 - ./setup.sh
 
-Note: If you would like to use built and committed Go Server file 'server' just copy it to the working directory and comment-out 'go build' command in setup.sh
+Note: If you would like to use built and committed Go Server file 'server' just copy it to the working directory and comment-out 'tar -xf music_app.tar' and 'go build' commands in setup.sh
 
 ## Access API Endpoint
 
 - http://localhost:9090/api/v1/music-albums?key=<INT>
+
 E.g.: 'curl http://localhost:9090/api/v1/music-albums?key=1'
 
 ## Notes
