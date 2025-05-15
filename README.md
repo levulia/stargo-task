@@ -52,7 +52,7 @@ Note: If you would like to use built and committed Go Server file 'server' just 
 
 ## Access API Endpoint
 
-- http://localhost:9090/api/v1/music-albums?key=<INT>
+- http://localhost:9090/api/v1/music-albums?key= <INT>
 
 E.g.: 'curl http://localhost:9090/api/v1/music-albums?key=1'
 
